@@ -1,1 +1,3 @@
-/* Empty. Add your own CSS if you like */
+ion-side-menu .item-content {
+  white-space: normal;
+}

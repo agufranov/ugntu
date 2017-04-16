@@ -32,42 +32,68 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.news', {
+    url: '/news',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/news.html'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.history', {
+    url: '/history',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/history.html'
+      }
+    }
+  })
+
+  .state('app.admission', {
+    url: '/admission',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/admission.html'
+      }
+    }
+  })
+
+  .state('app.specialties', {
+    url: '/specialties',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/specialties.html'
+      }
+    }
+  })
+
+  .state('app.test', {
+    url: '/test',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/test.html'
+      }
+    }
+  })
+
+  .state('app.achievements', {
+    url: '/achievements',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/achievements.html'
+      }
+    }
+  })
+
+  .state('app.extracurricular', {
+    url: '/extracurricular',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/extracurricular.html'
       }
     }
   });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+
+  $urlRouterProvider.otherwise('/app/news');
 });
