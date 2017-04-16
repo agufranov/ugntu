@@ -1,5 +1,16 @@
-<ion-view view-title="Тест на профориентацию">
-  <ion-content>
-    <h1>Test</h1>
+<ion-view view-title="Тест на профориентацию" class="test">
+  <ion-content class="padding">
+    <div class="card" ng-repeat="question in questions">
+      <div class="item item-text-wrap item-divider">{{question.q}}</div>
+      <ion-list radio-group class="test__question-list">
+        <ion-item ng-repeat="answer in question.a">
+          <ion-radio ng-model="answers[$parent.$parent.$index].actual" value="{{$index}}" name="answer_{{$parent.$parent.$index}}">{{$parent.$parent.$parent.$index}}:{{$index + 1}}. {{answer}}</ion-radio>
+        </ion-item>
+      </ion-list>
+        
+      </div>
+    </div>
+    <div>{{answers}}</div>
+    <button class="button button-balanced" ng-click="check()">Проверить результаты</button>
   </ion-content>
 </ion-view>
