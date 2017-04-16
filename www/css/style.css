@@ -18,3 +18,19 @@ ion-side-menu .item-content {
 .test .test__question-list .item-radio input:checked + .radio-content .item-content {
   background: #CCF;
 }
+
+.test.test_checked .test__question.test__question_correct .item-divider {
+  background: #CFC;
+}
+
+.test.test_checked .test__question.test__question_error .item-divider {
+  background: #FCC;
+}
+
+.test.test_checked .test__answer.test__answer_error .item-radio input:checked + .radio-content .item-content {
+  background: #FCC;
+}
+
+.test.test_checked .test__answer.test__answer_correct .item-radio .item-content {
+  background: #CFC !important;
+}

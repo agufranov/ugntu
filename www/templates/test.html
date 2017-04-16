@@ -1,16 +1,67 @@
-<ion-view view-title="Тест на профориентацию" class="test">
+<ion-view
+  view-title="Тест на профориентацию"
+  class="test"
+  ng-class="{ test_checked: checked }">
   <ion-content class="padding">
-    <div class="card" ng-repeat="question in questions">
+    <div
+      class="card test__question"
+      ng-repeat="question in questions"
+      ng-class="{ test__question_correct: answers[$index].correct, test__question_error: !answers[$index].correct }">
       <div class="item item-text-wrap item-divider">{{question.q}}</div>
-      <ion-list radio-group class="test__question-list">
-        <ion-item ng-repeat="answer in question.a">
-          <ion-radio ng-model="answers[$parent.$parent.$index].actual" value="{{$index}}" name="answer_{{$parent.$parent.$index}}">{{$parent.$parent.$parent.$index}}:{{$index + 1}}. {{answer}}</ion-radio>
-        </ion-item>
-      </ion-list>
-        
+        <ion-list class="test__question-list">
+          <ion-item
+            class="test__answer"
+            ng-repeat="answer in question.a"
+            ng-init="qi = $parent.$parent.$index"
+            ng-class="{ 'test__answer_correct': $index.toString() == answers[qi].expected.toString(), 'test__answer_error': !answers[qi].correct }">
+            <ion-radio
+              ng-model="answers[$parent.$parent.$index].actual"
+              value="{{$index}}"
+              ng-disabled="checked"
+              name="answer_{{$parent.$parent.$index}}">
+                {{$parent.$parent.$parent.$index}}:{{$index + 1}}. {{answer}}
+            </ion-radio>
+          </ion-item>
+        </ion-list>
       </div>
     </div>
     <div>{{answers}}</div>
-    <button class="button button-balanced" ng-click="check()">Проверить результаты</button>
+    <button
+      class="button button-balanced"
+      ng-click="preCheck()"
+      ng-if="!checked">Проверить результаты</button>
+    <button
+      class="button button-balanced"
+      ng-click="reset()"
+      ng-if="checked">Пройти тест заново</button>
   </ion-content>
+
+  <script id="confirm-finish-test-modal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+        <h1 class="title">Подтвердите</h1>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <h3>Вы ответили не на все вопросы. Завершить тест?</h3>
+        <div class="row">
+          <button ng-click="check()" class="button button-clear button-positive col">OK</button>
+          <button ng-click="confirmFinishTestModal.hide()" class="button button-clear button-positive col">Отмена</button>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <script id="test-results-modal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+        <h1 class="title">Подтвердите</h1>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <h3>Тест завершен.</h3>
+        <div class="row">
+          <button ng-click="testResultsModal.hide()" class="button button-clear button-positive col">OK</button>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
 </ion-view>
