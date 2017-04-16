@@ -28,8 +28,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    templateUrl: 'templates/menu.html'
   })
 
   .state('app.news', {
@@ -72,7 +71,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/test',
     views: {
       'menuContent': {
-        templateUrl: 'templates/test.html'
+        templateUrl: 'templates/test.html',
+        controller: 'TestCtrl'
       }
     }
   })
