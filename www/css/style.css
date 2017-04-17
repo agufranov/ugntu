@@ -34,3 +34,11 @@ ion-side-menu .item-content {
 .test.test_checked .test__answer.test__answer_correct .item-radio .item-content {
   background: #CFC !important;
 }
+
+.score1 {
+  color: #F93;
+}
+
+.score2 {
+  color: #393;
+}
