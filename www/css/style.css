@@ -42,3 +42,8 @@ ion-side-menu .item-content {
 .score2 {
   color: #393;
 }
+
+.spec td {
+  border: 1px solid #DDD;
+  text-align: center;
+}
