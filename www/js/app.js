@@ -90,7 +90,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/extracurricular',
     views: {
       'menuContent': {
-        templateUrl: 'templates/extracurricular.html'
+        templateUrl: 'templates/extracurricular.html',
+        controller: 'ExtraCtrl'
       }
     }
   });

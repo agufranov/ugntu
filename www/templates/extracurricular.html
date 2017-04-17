@@ -1,5 +1,8 @@
 <ion-view view-title="Внеучебная деятельность студентов ВУЗа">
   <ion-content>
-    <h1>Extracurricular</h1>
+    <img
+      ng-repeat="image in images"
+      ng-src="{{image.url}}"
+      style="width: 100%">
   </ion-content>
 </ion-view>
