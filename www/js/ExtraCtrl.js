@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers')
 
 .controller('ExtraCtrl', function($scope, $ionicModal, $timeout) {
   $scope.images = [
